@@ -5,10 +5,16 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
+      - echo "🔍 Navigating into repo folder"
+      - cd tf-task-1
+      - echo "📦 Installing dependencies"
       - npm install
+
   build:
     commands:
+      - echo "⚙️ Running build"
       - npm run build
+      - echo "📁 Copying appspec.yml and scripts"
       - cp appspec.yml dist/
       - mkdir -p dist/scripts
       - cp scripts/install.sh dist/scripts/
@@ -16,4 +22,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: dist
+  base-directory: tf-task-1/dist
